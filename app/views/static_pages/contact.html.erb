@@ -1,2 +1,10 @@
-<h1>StaticPages#contact</h1>
-<p>Find me in app/views/static_pages/contact.html.erb</p>
+<% provide(:title, 'Contact Us') %>
+<h1>Contact Us</h1>
+<form>
+	<legend>If you have questions or comments feel free to send us a message below!</legend>
+	<input type="text" placeholder="Name"> <br />
+	<input type="text" placeholder="Email"><br />
+	<input class="span5" type="text" placeholder="Subject"><br />
+	<textarea class="span5" rows="7" placeholder="Message"></textarea><br />
+	<button type="submit" class="btn btn-large btn-primary">Submit</button>
+</form>
