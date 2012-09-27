@@ -13,7 +13,7 @@ describe "UserPages" do
 
 		before { visit signup_path }
 
-		let(:submit)  { "Create my account" }
+		let(:submit)  { "Submit" }
 
 		describe "with invalid information" do
 			it "should not create a user" do
@@ -31,10 +31,10 @@ describe "UserPages" do
 
 		describe "with valid information" do
 			before do
-				fill_in "Name", 				with: "Example User"
-				fill_in "Email", 				with: "user@example.com"
-				fill_in "Password", 			with: "foobar"
-				fill_in "Confirm Password",	with: "foobar"
+				find("input[placeholder='Name']").set "Example User"
+				find("input[placeholder='Email']").set "user@example.com"
+				find("input[placeholder='Password']").set "foobar"
+				find("input[placeholder='Re-type Password']").set "foobar"
 			end
 
 			it "should create a user" do

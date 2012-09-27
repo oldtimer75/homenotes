@@ -3,8 +3,16 @@
     <div class="container">
       <%= link_to "HomeNotes", root_path, class: "brand" %>
       <ul class="nav pull-right">
+      	<% if signed_in? %>
+            <li><%= link_to "Properties", root_path %></li>
+            <li><%= link_to "Account", root_path %></li>
+        <% end %>
         <li><%= link_to "Contact Us", contact_path %></li>
-        <li><%= link_to "Sign in", signup_path %></li>
+		<% if signed_in? %>
+            <li><%= link_to "Sign Out", signout_path, method: "delete" %></li>
+        <% else %>
+        	<li><%= link_to "Sign in", signin_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
