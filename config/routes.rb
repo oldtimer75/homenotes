@@ -7,7 +7,8 @@ Homenotes::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
-  match '/contact', to: 'static_pages#contact'
+  match '/contact', to: 'contact#new', as: 'contact', via: :get
+  match '/contact', to: 'contact#create', as: 'contact', via: :post
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

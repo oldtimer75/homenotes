@@ -1,0 +1,15 @@
+<% provide(:title, 'Contact Us') %>
+<h1>Contact Us</h1>
+<legend>If you have questions or comments feel free to send us a message below!</legend>
+
+<%= form_for(:message, url: contact_path) do |f| %>
+	    <%= f.text_field :name, class: "input-xlarge", placeholder: "Name" %>
+	    <br />
+	    <%= f.text_field :email, class: "input-xlarge", placeholder: "Email" %>
+	    <br />
+	    <%= f.text_field :subject, class: "span5 input-xlarge",  placeholder: "Subject" %>
+	    <br />
+	    <%= f.text_area :body, rows: "7", class: "span5 input-xlarge", placeholder: "Message" %>
+	    <br />
+ 	<%= f.submit "Send", class: "btn btn-large btn-primary" %>
+<% end %>
