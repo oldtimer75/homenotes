@@ -16,6 +16,7 @@ describe User do
 	it { should respond_to(:remember_token) }
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:admin) }
+	it { should respond_to(:properties) }
 
 
 
@@ -125,6 +126,24 @@ describe User do
 
 		it { should be_admin }
 	end
+
+	describe "properties association" do
+
+    before { @user.save }
+    let!(:property) { FactoryGirl.create(:property) }
+    
+    it "factory girl creates properties" do
+		property.price.should == 1000
+	end
+
+    it "should destroy associated properties" do
+      properties = @user.properties
+      @user.destroy
+      properties.each do |property|
+        Property.find_by_id(property.id).should be_nil
+      end
+    end
+  end
 end
 # == Schema Information
 #

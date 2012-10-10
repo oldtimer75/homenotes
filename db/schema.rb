@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927162956) do
+ActiveRecord::Schema.define(:version => 20121010205250) do
+
+  create_table "properties", :force => true do |t|
+    t.integer  "user_id"
+    t.decimal  "price"
+    t.string   "address"
+    t.string   "type"
+    t.integer  "beds"
+    t.integer  "baths"
+    t.string   "contact_name"
+    t.integer  "contact_phone"
+    t.string   "contact_email"
+    t.text     "notes"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "properties", ["user_id"], :name => "index_properties_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
