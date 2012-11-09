@@ -9,8 +9,8 @@ class PropertiesController < ApplicationController
 	def create
 		@property = current_user.properties.build(params[:property])
 		if @property.save
-			flash.now[:success] = "Property added!"
-			render 'show'
+			flash[:success] = "Property added!"
+			redirect_to user_path(current_user)
 		else
 			render 'new'
 		end
