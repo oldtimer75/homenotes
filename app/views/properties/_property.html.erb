@@ -1,0 +1,8 @@
+<tr>
+	<td class="thumbnail"><a href="<%= property_path(property.id) %>"><img src="http://placehold.it/160x120" alt=""></a></td>
+    <td><%= number_to_currency(property.price, precision: 0) %></td>
+    <td><%= property.address %></td>
+    <td><%= property.style %></td>   
+    <td><%= property.beds %></td>
+    <td><%= property.baths %></td>                                 
+</tr>

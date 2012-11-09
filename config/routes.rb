@@ -1,5 +1,6 @@
 Homenotes::Application.routes.draw do
   resources :users
+  resources :properties
   resources :sessions, only: [:new, :create, :destroy]
 
   root to: 'static_pages#home'
@@ -9,6 +10,9 @@ Homenotes::Application.routes.draw do
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/contact', to: 'contact#new', as: 'contact', via: :get
   match '/contact', to: 'contact#create', as: 'contact', via: :post
+  match '/property', to: 'properties#show'
+  match '/addproperty', to: 'properties#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

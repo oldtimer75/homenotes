@@ -4,7 +4,7 @@ describe Property do
 	let(:user) { FactoryGirl.create(:user) }
 
 	before do 
-		@property = user.properties.build(price: "100", address: "241 Toronto", type: "House", 
+		@property = user.properties.build(price: "100", address: "241 Toronto", style: "House", 
 		beds: 1, baths: 2, contact_name: "Moe", contact_phone: 1234567890, contact_email: "blah@gmail.com", notes: "Words") 
 	end
 
@@ -13,7 +13,7 @@ describe Property do
 	it { should respond_to(:user_id) }
 	it { should respond_to(:price) }
 	it { should respond_to(:address) }
-	it { should respond_to(:type) }
+	it { should respond_to(:style) }
 	it { should respond_to(:beds) }
 	it { should respond_to(:baths) }
 	it { should respond_to(:contact_name) }

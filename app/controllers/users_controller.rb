@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  before_filter :correct_user, only: [:edit, :update]
+  before_filter :correct_user, only: [:show, :edit, :update]
+  helper_method :sort_column, :sort_direction
 
 	def show
 		@user = User.find(params[:id])
+		@property = @user.properties.order(sort_column + " " + sort_direction)
 	end
 
 	def new
@@ -36,9 +38,19 @@ class UsersController < ApplicationController
 	
 	private
 
-	def correct_user
-      @user = User.find(params[:id])
-      redirect_to(root_path) unless current_user?(@user)
-    end
+		def correct_user
+	      @user = User.find(params[:id])
+	      redirect_to(root_path) unless current_user?(@user)
+	    end
+
+	    def sort_column
+	    	Property.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+	  	end
+  
+		def sort_direction
+		  %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+		end
+
+    
 
 end

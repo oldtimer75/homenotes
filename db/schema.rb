@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20121010205250) do
     t.integer  "user_id"
     t.decimal  "price"
     t.string   "address"
-    t.string   "type"
+    t.string   "style"
     t.integer  "beds"
     t.integer  "baths"
     t.string   "contact_name"

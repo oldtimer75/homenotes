@@ -16,7 +16,7 @@ FactoryGirl.define do
   	sequence(:address)		{ |n| "#{n} Street" }
   	beds 2
   	baths 3
-    type "House"
+    style "House"
     contact_name "Derek"
     contact_email "d@gmail.com"
     contact_phone 1234567890

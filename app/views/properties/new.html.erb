@@ -1,0 +1,11 @@
+<% provide(:title, 'Add Property') %>
+<h1>Add Property</h1>
+
+<div class="row">
+  <div class="span4 offset4">
+    <%= form_for(@property) do |f| %>
+      <%= render 'fields', f: f %>
+      <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

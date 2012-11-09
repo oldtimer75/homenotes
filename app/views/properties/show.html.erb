@@ -1,0 +1,87 @@
+<% provide(:title, @property.address) %>
+
+
+
+<div class="row">
+	<h1><%= @property.address %></h1>
+  <div align="right">
+    <%= link_to "Edit", edit_property_path, class: "btn btn-small btn-primary" %>
+    <% if current_user?(@property.user) %>
+      <%= link_to "Delete", @property, class: "btn btn-small btn-primary", method: :delete,
+                                     data: { confirm: "Are you sure?" },
+                                     title: @property.address %>
+    <% end %>
+  </div>
+
+  <br>
+
+	<div class="container-fluid">
+	  <div class="row-fluid">
+	    <div class="span12 well">
+	    	<div class="span3 offset1">
+		      <img src="http://placehold.it/200x150" alt="" class="thumbnail">
+		    </div>
+		     <div class="span3">
+		      <img src="http://placehold.it/200x150" alt="" class="thumbnail">
+		    </div>
+		    <div class="span3">
+		      <img src="http://placehold.it/200x150" alt="" class="thumbnail">
+		    </div>
+	      
+	    </div>
+	  </div>
+	</div>
+   
+  <br>
+   
+  <div class="container-fluid offset1">
+    <div class="row-fluid">
+      <div class="span5 well">
+      	<div class="span2">
+      		<b>Price:</b> <br> 
+      		<b>Style:</b> <br>
+      		<b>Beds:</b> <br>
+      		<b>Baths:</b> <br> <br>
+      	</div>
+      	<div class="span3">
+      		<%= number_to_currency(@property.price, precision: 0) %> <br>
+      		<%= @property.style %> <br>
+      		<%= @property.beds %> <br>
+      		<%= @property.baths %> 
+      	</div>
+      </div>
+      <div class="span5 well">
+      	<div class="span5">
+  	      <b>Contact Information:</b> <br> <br>
+  	      <%= @property.contact_name %> <br>
+  	      <%= @property.contact_email %> <br>
+  	      <%= number_to_phone(@property.contact_phone) %> <br>
+   		</div>
+      </div>
+    </div> <!-- End Row -->
+  </div> <!-- End Container -->
+   
+  <br>
+   
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12 well">
+        <b>Notes:</b><br>
+        <%= @property.notes %>
+      </div>
+    </div>
+  </div>
+   
+  <br>
+   
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12 well">
+        <b>Checklist</b>
+      </div>
+    </div>
+  </div>
+   
+  <br>
+
+</div>
