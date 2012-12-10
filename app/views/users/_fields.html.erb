@@ -1,5 +1,28 @@
 <%= render 'shared/error_messages', object: f.object %>
-<p><%= f.text_field :name, class: "input-xlarge", placeholder: "Name" %></p>
-<p><%= f.text_field :email, class: "input-xlarge", placeholder: "Email" %></p>
-<p><%= f.password_field :password, class: "input-xlarge", placeholder: "Password" %></p>
-<p><%= f.password_field :password_confirmation, class: "input-xlarge", placeholder: "Re-type Password" %></p>
+
+<div class="control-group">
+	<label class="control-label">Name</label>
+	<div class="controls">
+		<%= f.text_field :name, class: "input-xlarge", placeholder: "Name" %>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">Email</label>
+	<div class="controls">
+		<%= f.text_field :email, class: "input-xlarge", placeholder: "Email" %>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">Password</label>
+	<div class="controls">
+		<%= f.password_field :password, class: "input-xlarge", placeholder: "Password" %>
+	</div>
+</div>
+<div class="control-group">
+	<label class="control-label">Confirm Password</label>
+	<div class="controls">
+		<%= f.password_field :password_confirmation, class: "input-xlarge", placeholder: "Re-type Password" %>
+	</div>
+</div>
+
+

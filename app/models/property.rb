@@ -1,6 +1,7 @@
 class Property < ActiveRecord::Base
-	attr_accessible :address, :baths, :beds, :contact_email, :contact_name, :contact_phone, :notes, :price, :style
+	attr_accessible :address, :baths, :beds, :contact_email, :contact_name, :contact_phone, :notes, :price, :style, :image, :remote_image_url
 	belongs_to :user
+	mount_uploader :image, ImageUploader
 
 	validates :user_id, presence: true
 	validates :address, presence: true

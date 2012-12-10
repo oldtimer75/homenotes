@@ -91,4 +91,33 @@ describe "UserPages" do
 		end
 	end
 
+	describe "show property listings" do
+		let(:user) { FactoryGirl.create(:user) }
+		before do
+			sign_in user
+			visit user_path(user)
+		end
+
+		describe "page" do
+			it { should have_selector('h1', text: "Property Listings") }
+			it { should have_selector('title', text: user.name) }
+		end
+
+		describe "with no properties" do
+			it { should_not have_content('Address') }
+
+		end
+
+		describe "with properties" do
+			let!(:property) { FactoryGirl.create(:property, user: user) }
+			before { visit user_path(user) }
+			it { should have_content(user.properties.count) }
+			it { should have_content(property.address) }
+			it { should have_content('Address') }
+		end
+
+	end
+
+
+
 end

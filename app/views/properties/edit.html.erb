@@ -2,10 +2,14 @@
 <h1>Edit Property</h1>
 
 <div class="row">
-  <div class="span4 offset4">
-    <%= form_for(@property) do |f| %>
+  <div class="span4 offset3 form-horizontal">
+    <%= form_for(@property, html: {multipart: true}) do |f| %>
       <%= render 'fields', f: f %>
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <div class="control-group">
+        <div class="controls">
+    	  <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
