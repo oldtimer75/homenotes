@@ -20,6 +20,6 @@ FactoryGirl.define do
     contact_name "Derek"
     contact_email "d@gmail.com"
     contact_phone 1234567890
-    notes "word"
+    notes "word123"
 	end
 end
