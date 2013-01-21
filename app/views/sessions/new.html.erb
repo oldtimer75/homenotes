@@ -18,6 +18,13 @@
           <%= f.password_field :password, class: "input-xlarge", placeholder: "Password" %>
         </div>
       </div>
+
+      <div class="control-group">
+        <label class="control-label">Remember Me?</label>
+        <div class="controls">
+          <%= check_box_tag :remember_me, 1, params[:remember_me] = true %>
+        </div>
+      </div>
       
       <div class="control-group">
         <div class="controls">

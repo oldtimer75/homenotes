@@ -14,6 +14,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(params[:user])
 		if @user.save
+			NotificationsMailer.registration_confirmation(@user).deliver
 			sign_in @user
   		flash[:success] = "Welcome to HomeNotes!"
 			redirect_to @user
@@ -34,6 +35,12 @@ class UsersController < ApplicationController
 	    else
 	      render 'edit'
     	end
+	end
+
+	def resetpass
+		@user = User.find_by_email(params[:email])
+		new_password = "54321"
+		@user.update_attribute(:name, new_password)
 	end
 	
 	private

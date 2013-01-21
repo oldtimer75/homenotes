@@ -12,6 +12,7 @@ Homenotes::Application.routes.draw do
   match '/contact', to: 'contact#create', as: 'contact', via: :post
   match '/property', to: 'properties#show'
   match '/addproperty', to: 'properties#new'
+  match '/resetpass', to: 'users#resetpass'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
