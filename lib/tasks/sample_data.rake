@@ -4,6 +4,7 @@ namespace :db do
   task populate: :environment do
     make_user
     make_property
+    make_checklist
   end
 end
 
@@ -30,5 +31,16 @@ def make_property
     users.properties.create!(price: price, address: address, beds: beds,
        baths: baths, style: style, contact_name: contact_name, contact_email: contact_email,
         contact_phone: contact_phone, notes: notes) 
+  end
+end
+
+def make_checklist
+  users = User.first
+  properties = 
+  20.times do |n|
+    item = "Test item #{n+1}"
+    unchecked = Array['1','2','3','4','5']
+    checked = Array['6','7','8','9']
+    users.checklists.create!(item: item, unchecked: unchecked, checked: checked)
   end
 end

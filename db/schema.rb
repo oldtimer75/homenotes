@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121203175834) do
+ActiveRecord::Schema.define(:version => 20130121171617) do
+
+  create_table "checklists", :force => true do |t|
+    t.string   "item"
+    t.integer  "user_id"
+    t.integer  "unchecked"
+    t.integer  "checked"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "checklists", ["user_id"], :name => "index_checklists_on_user_id"
 
   create_table "properties", :force => true do |t|
     t.integer  "user_id"
