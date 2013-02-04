@@ -1,0 +1,17 @@
+<% provide(:title, 'Add to Checklist') %>
+<h1>Add to Checklist</h1>
+
+<div class="row">
+  <div class="span4 offset3 form-horizontal">
+
+    <%= form_for(@item, html: {multipart: true}) do |f| %>
+      <%= render 'fields', f: f %>
+      <div class="control-group">
+        <div class="controls">
+    	  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+    
+  </div>
+</div>

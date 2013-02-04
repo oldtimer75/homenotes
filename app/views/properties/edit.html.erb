@@ -5,9 +5,17 @@
   <div class="span4 offset3 form-horizontal">
     <%= form_for(@property, html: {multipart: true}) do |f| %>
       <%= render 'fields', f: f %>
+
       <div class="control-group">
         <div class="controls">
-    	  <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+          <a name="checklist"></a>
+          <% for item in Item.where("user_id = ? OR user_id = ?", current_user, 0) %>
+            <%= check_box_tag "property[item_ids][]", item.id, @property.items.include?(item) %>
+            <%= item.name %>
+            </br>
+          <% end %>
+          </br>
+    	    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
         </div>
       </div>
     <% end %>

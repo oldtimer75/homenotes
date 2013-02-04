@@ -4,6 +4,7 @@ namespace :db do
   task populate: :environment do
     make_user
     make_property
+    make_item
   end
 end
 
@@ -30,5 +31,13 @@ def make_property
     users.properties.create!(price: price, address: address, beds: beds,
        baths: baths, style: style, contact_name: contact_name, contact_email: contact_email,
         contact_phone: contact_phone, notes: notes) 
+  end
+end
+
+def make_item
+  20.times do |n|
+    name = "Item name #{n+1}"
+    user_id = 0
+    Item.create!(name: name, user_id: user_id)
   end
 end

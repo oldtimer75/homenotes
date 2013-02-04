@@ -2,6 +2,7 @@ Homenotes::Application.routes.draw do
   resources :users
   resources :properties
   resources :sessions, only: [:new, :create, :destroy]
+  resources :items 
 
   root to: 'static_pages#home'
 
@@ -13,6 +14,7 @@ Homenotes::Application.routes.draw do
   match '/property', to: 'properties#show'
   match '/addproperty', to: 'properties#new'
   match '/resetpass', to: 'users#resetpass'
+  match '/additem', to: 'items#new'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

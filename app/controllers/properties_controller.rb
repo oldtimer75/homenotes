@@ -19,12 +19,14 @@ class PropertiesController < ApplicationController
 	def show
 		@property = Property.find(params[:id])
 		@user = @property.user_id
+		session[:return_to] = request.fullpath
 	end
 
 	def edit
  	end
 
 	def update
+		params[:property][:item_ids] ||= []
 	    if @property.update_attributes(params[:property])
 	      flash[:success] = "Property updated."
 	      redirect_to property_path

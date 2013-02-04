@@ -74,10 +74,19 @@
    
   <br>
    
+  <div align="right">
+    <%= link_to "Mark Checklist", edit_property_path + "#checklist", class: "btn btn-small btn-primary" %>
+    <%= link_to "Add Checklist Item", additem_path, class: "btn btn-small btn-primary" %>
+  </div>
+
+  <br>
+
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span12 well">
         <b>Checklist</b>
+        </br>
+        <%= @property.items.collect(&:name).join("<br>").html_safe %>
       </div>
     </div>
   </div>
