@@ -12,4 +12,5 @@ class Property < ActiveRecord::Base
 	validates_numericality_of :beds, only_integer: true, message: "can only be numbers", allow_nil: true
 	validates_numericality_of :baths, only_integer: true, message: "can only be numbers", allow_nil: true
 	validates_numericality_of :price, only_integer: true, message: "can only be numbers", allow_nil: true
+
 end
