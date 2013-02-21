@@ -46,4 +46,10 @@ module SessionsHelper
 		session[:return_to] = request.fullpath
 	end
 
+	def destroy_item(item)
+		@item = item
+		@item.destroy
+	end
+
+
 end

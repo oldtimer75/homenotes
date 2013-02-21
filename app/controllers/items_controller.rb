@@ -14,4 +14,11 @@ class ItemsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@item = Item.find(params[:id])
+		@item.destroy
+		flash[:success] = "Checklist item deleted."
+		redirect_to additem_path
+	end
+
 end

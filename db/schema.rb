@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130204204640) do
+ActiveRecord::Schema.define(:version => 20130221171456) do
 
   create_table "items", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,9 @@ ActiveRecord::Schema.define(:version => 20130204204640) do
     t.datetime "updated_at",    :null => false
     t.string   "image"
     t.integer  "checklist"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
   end
 
   add_index "properties", ["user_id"], :name => "index_properties_on_user_id"

@@ -1,0 +1,5 @@
+  <% if current_user?(object.user) %>
+    <%= link_to "X", object, class: "label label-info", method: :delete,
+                                     data: { confirm: "Are you sure?" },
+                                     title: object.name %>
+  <% end %>

@@ -4,6 +4,15 @@
 
 <div class="row">
 	<h1><%= @property.address %></h1>
+
+
+
+  <br>
+  <%= gmaps({
+       "map_options" => { "auto_zoom" => false, "zoom" => 16},
+       "markers"     => { "data" => @json }
+      })%>
+  <br>
   <div align="right">
     <%= link_to "Edit", edit_property_path, class: "btn btn-small btn-primary" %>
     <% if current_user?(@property.user) %>

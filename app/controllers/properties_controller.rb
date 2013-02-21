@@ -18,6 +18,7 @@ class PropertiesController < ApplicationController
 
 	def show
 		@property = Property.find(params[:id])
+		@json = @property.to_gmaps4rails
 		@user = @property.user_id
 		session[:return_to] = request.fullpath
 	end
@@ -41,7 +42,7 @@ class PropertiesController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
-
+	
 	private
 
 		def correct_user

@@ -1,0 +1,14 @@
+
+    <div class="control-group">
+      <label class="control-label">Current Checklist Items</label>
+      <div class="controls">
+        <a name="checklist"></a>
+        <% for item in Item.where("user_id = ? OR user_id = ?", current_user, 0) %>
+          <%= item.name %>
+          <% if item.user_id != 0  %>
+            <%= render partial: 'shared/delete_link', locals: { object: item, user: @user } %>
+          <% end %>
+          </br>
+        <% end %>
+      </div>
+    </div>
