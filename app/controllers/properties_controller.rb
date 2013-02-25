@@ -42,6 +42,10 @@ class PropertiesController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def delete_image
+		remove_image!
+	end
+
 	
 	private
 

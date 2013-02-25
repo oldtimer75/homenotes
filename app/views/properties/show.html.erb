@@ -27,16 +27,22 @@
 	<div class="container-fluid">
 	  <div class="row-fluid">
 	    <div class="span12 well">
-	    	<div class="span3 offset1">
-		      <%= image_tag @property.image_url(:thumb).to_s, class: "thumbnail" %>
-		    </div>
-		     <div class="span3">
-		      <img src="http://placehold.it/200x150" alt="" class="thumbnail">
-		    </div>
-		    <div class="span3">
-		      <img src="http://placehold.it/200x150" alt="" class="thumbnail">
-		    </div>
-	      
+	    	
+		    <a href= <%= @property.image_url %> > <%= image_tag @property.image_url(:thumb).to_s, class: "thumbnail" %></a>
+
+        <%= form_for(@property, html: {multipart: true}) do |f| %>
+      
+        <label>
+        <%= f.check_box :remove_image, {checked: true, style: 'display:none'}  %>
+        </label>
+
+          <div class="control-group">
+            <div class="controls">
+              </br>
+              <%= f.submit "X", class: "label label-info" %>
+            </div>
+          </div>
+        <% end %>
 	    </div>
 	  </div>
 	</div>
@@ -84,8 +90,8 @@
   <br>
    
   <div align="right">
-    <%= link_to "Mark Checklist", edit_property_path + "#checklist", class: "btn btn-small btn-primary" %>
-    <%= link_to "Add Checklist Item", additem_path, class: "btn btn-small btn-primary" %>
+    <%= link_to "Mark Off Checklist", edit_property_path + "#checklist", class: "btn btn-small btn-primary" %>
+    <%= link_to "Edit Checklist Items", additem_path, class: "btn btn-small btn-primary" %>
   </div>
 
   <br>
@@ -93,7 +99,7 @@
   <div class="container-fluid">
     <div class="row-fluid">
       <div class="span12 well">
-        <b>Checklist</b>
+        <b>Checked Items</b>
         </br>
         <%= @property.items.collect(&:name).join("<br>").html_safe %>
       </div>
