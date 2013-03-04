@@ -37,12 +37,7 @@ class UsersController < ApplicationController
     	end
 	end
 
-	def resetpass
-		@user = User.find_by_email(params[:email])
-		new_password = "54321"
-		@user.update_attribute(:name, new_password)
-	end
-	
+		
 	private
 
 		def correct_user
