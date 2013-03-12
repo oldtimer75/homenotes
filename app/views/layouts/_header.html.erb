@@ -1,19 +1,35 @@
-<header class="navbar navbar-inverse navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "HomeNotes", root_path, class: "brand" %>
-      <ul class="nav pull-right">
-      	<% if signed_in? %>
+
+
+<header class="navbar navbar-fixed-top" id="top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="btnTitle">Menu</span>
+          <span class="icon-chevron-down icon-white"></span>
+        </a>
+        <%= link_to image_tag("logo.gif"), root_path, class: "brand" %>
+        <div class="nav-collapse">
+          
+          
+          <!--main nav-->
+<ul class="nav">
+  <li><%= link_to "Home", root_path %></li>
+  <% if signed_in? %>
             <li><%= link_to "Properties", user_path(current_user) %></li>
             <li><%= link_to "Account", edit_user_path(current_user) %></li>
         <% end %>
         <li><%= link_to "Contact Us", contact_path %></li>
-		<% if signed_in? %>
-            <li><%= link_to "Sign out", signout_path, method: "delete" %></li>
+
+        <% if signed_in? %>
+            <li class="last"><%= link_to "Sign Out", signout_path, method: "delete" %></li>
         <% else %>
-        	<li><%= link_to "Sign in", signin_path %></li>
+          <li class="last"><%= link_to "Sign In", signin_path %></li>
         <% end %>
-      </ul>
+</ul>
+          
+          
+        </div><!--end main menu-->
+        
+      </div>
     </div>
-  </div>
-</header>
+    </header>
