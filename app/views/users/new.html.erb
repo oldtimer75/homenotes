@@ -1,17 +1,47 @@
 <% provide(:title, 'Sign Up') %>
 
-<h1>Sign Up</h1>
+<!--main tagline area-->
+    <section class="taglineWrap">
+      <div class="container">
+        <div class="row-fluid  tagline">
+          <div class="span12"><h2>Create a new account.</h2></div>
+        
+        </div>
+      </div> <!-- /container -->
+    </section>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
-    <%= form_for(@user) do |f| %>
-      <%= render 'fields', f: f %>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+
+<section class="mainContentWrap">
+      <div class="container mainContent">
+        <div class="row-fluid">
+          <div class="span9">
+            <div class="row-fluid">
+              <div class="innerSpacer">
+                
+
+                <!--sign in form-->
+                <div class="row-fluid">
+                  <div class="span12 contact">
+                    <h1>Sign up</h1>
+                   
+                    <%= form_for(@user) do |f| %>
+                      <%= render 'fields', f: f %>
+                    <%= f.submit "Sign up", class: "btn btn-success" %>
+                          
+                          
+                    <% end %>
+                    
+                                        
+                  </div>
+                </div>
+                <!--end sign in form-->
+                
+                
+                
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
-      
-    <% end %>
-  </div>
-</div>
+    </section>
+

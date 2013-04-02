@@ -1,21 +1,52 @@
 <% provide(:title, "Password Reset") %>
-<h1>Password Reset</h1>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
-    <%= form_tag password_resets_path, method: :post do %>
+<!--main tagline area-->
+    <section class="taglineWrap">
+      <div class="container">
+        <div class="row-fluid  tagline">
+          <div class="span12"><h2>Forgot your password? Enter your email address to reset.</h2></div>
+        
+        </div>
+      </div> <!-- /container -->
+    </section>
 
-      <div class="control-group">
-        <label class="control-label">Email</label>
-        <div class="controls">
-         <%= text_field_tag :email, params[:email] %>
+
+<section class="mainContentWrap">
+      <div class="container mainContent">
+        <div class="row-fluid">
+          <div class="span9">
+            <div class="row-fluid">
+              <div class="innerSpacer">
+                
+
+                <!--sign in form-->
+                <div class="row-fluid">
+                  <div class="span12 contact">
+                    <h1>Password Reset</h1>
+                   
+                    <%= form_tag password_resets_path, method: :post do %>
+                      <div class="control-group">
+                        <div class="controls">
+                          <%= text_field_tag :email, params[:email], class: "span3 required" %>
+                        </div>
+                        <label class="control-label" for="name">Email</label>
+                      </div>
+                    <%= submit_tag "Reset Password", class: "btn btn-success" %>
+                          
+                          
+                    <% end %>
+                    
+                                        
+                  </div>
+                </div>
+                <!--end sign in form-->
+                
+                
+                
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
-      <div class="control-group">
-        <div class="controls">
-          <%= submit_tag "Reset Password", class: "btn btn-large btn-primary" %>
-        </div>
-      </div>
-	<% end %>
-  </div>
-</div>
+    </section>
+

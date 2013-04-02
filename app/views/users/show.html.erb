@@ -1,35 +1,77 @@
 <% provide(:title, @user.name) %>
 
+<!--main tagline area-->
+    <section class="taglineWrap">
+      <div class="container">
+        <div class="row-fluid  tagline">
+          <div class="span8"><h2>To record notes for a property you're viewing, click the button to add a property.</h2></div>
+          <div class="span4 action">
+            
+            <div>
+              <%= link_to "Add Property", addproperty_path, class: "btn first btn-success" %>
+            </div>
+            
+          </div>
+        </div>
+      </div> <!-- /container -->
+    </section>
 
+<!--main content-->
+    <section class="mainContentWrap">
+      <div class="container mainContent">
+        <div class="row-fluid">
+          <div class="span12">
+            <div class="row-fluid">
+              <div class="innerSpacer">
+                
+                <!--body search widget for mobile-->
+                <div class="row-fluid body-search">
+                  <div class="span12 widget_search">
+                    <form class="form-inline" action="#" method="get" role="search">
+                        <input type="text" class="input-medium span3"  placeholder="Search...">
+                        <button class="icon-search" type="submit"></button>
+                    </form>
+                  </div>  
+                </div>
+                
+                <% if @property.count != 0 %>
+	                <div class="row-fluid pageTitle">
+	                  <div class="span12">
+	                    <h1>
+	                      Property Listings
+	                      <span class="label"><%= sortable "address" %></span>
+	                      <span class="label"><%= sortable "style" %></span>
+	                      <span class="label"><%= sortable "price" %></span>
+	                      <span class="label"><%= sortable "beds", "Bed" %></span>
+	                      <span class="label"><%= sortable "baths", "Bath" %></span>
+	                    </h1>
+	                  </div>
+	                </div>
+                <% end %>
+                
+                <!--results-->
+                <div class="row-fluid">
+                  <div class="span12">
+                    
+                  	<% if @property.count == 0 %>
 
-<div class="row">
-	<h1>Property Listings</h1>
-
-
-    <div class="span11">
-    	
-  	    <%= link_to "Add Property", addproperty_path, class: "btn btn-large btn-primary" %>
-
-	    <% if @property.count == 0 %>
-	    <% else %>
-	    	<div class="span11">
-				<table class="table table-striped table-condensed">
-					<thead>
-					    <tr>
-					      	<th>Preview</th>
-					        <th><%= sortable "price" %></th>
-					        <th><%= sortable "address" %></th>
-					        <th><%= sortable "style" %></th>
-					        <th><%= sortable "beds", "Bed" %></th>
-				        	<th><%= sortable "baths", "Bath" %></th>                                          
-				    	</tr>
-					</thead>   
-					<tbody>
+				    <% else %>
 				    	<%= render @property %>
-					</tbody>
-				</table>
-			</div>    
-	    <% end %>
-  	
-	</div>
-</div>
+
+                    <% end %>
+                  </div>                  
+                </div>
+                <!--end results-->
+                
+                
+                
+              </div>
+            </div>
+          </div>
+            
+         
+        </div>
+      </div>
+    </section>
+
+

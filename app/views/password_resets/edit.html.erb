@@ -1,31 +1,59 @@
 <% provide(:title, "New Password") %>
-<h1>New Password</h1>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
+<!--main tagline area-->
+    <section class="taglineWrap">
+      <div class="container">
+        <div class="row-fluid  tagline">
+          <div class="span12"><h2>Now you can enter a new password.</h2></div>
+        
+        </div>
+      </div> <!-- /container -->
+    </section>
 
-    <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
 
-      <%= render 'shared/error_messages', object: f.object %>
-       
-      <div class="control-group">
-        <label class="control-label">Password</label>
-        <div class="controls">
-          <%= f.password_field :password, class: "input-xlarge", placeholder: "Password" %>
+    <section class="mainContentWrap">
+      <div class="container mainContent">
+        <div class="row-fluid">
+          <div class="span9">
+            <div class="row-fluid">
+              <div class="innerSpacer">
+                
+
+                <!--sign in form-->
+                <div class="row-fluid">
+                  <div class="span12 contact">
+                    <h1>New Password</h1>
+                   
+                    <%= form_for @user, url: password_reset_path(params[:id]) do |f| %>
+                      <div class="control-group">
+                        <div class="controls">
+                         <%= f.password_field :password, class: "span3 required",  placeholder: "Enter password" %>
+                        </div>
+                        <label class="control-label" for="password">Password</label>
+                      </div>
+
+                      <div class="control-group">
+                        <div class="controls">
+                          <%= f.password_field :password_confirmation, class: "span3 required",  placeholder: "Re-type password" %>
+                        </div>
+                        <label class="control-label" for="password">Confirm Password</label>
+                      </div>
+                    <%= f.submit "Submit", class: "btn btn-success" %>
+                          
+                          
+                    <% end %>
+                    
+                                        
+                  </div>
+                </div>
+                <!--end sign in form-->
+                
+                
+                
+              </div>
+            </div>
+          </div> 
         </div>
       </div>
-      <div class="control-group">
-        <label class="control-label">Confirm Password</label>
-        <div class="controls">
-          <%= f.password_field :password_confirmation, class: "input-xlarge", placeholder: "Re-type Password" %>
-        </div>
-      </div>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
-        </div>
-      </div>
-    <% end %>
+    </section>
 
-  </div>
-</div>
