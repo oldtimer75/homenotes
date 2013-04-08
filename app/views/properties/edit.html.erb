@@ -1,23 +1,55 @@
 <% provide(:title, 'Edit Property') %>
-<h1>Edit Property</h1>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
-    <%= form_for(@property, html: {multipart: true}) do |f| %>
-      <%= render 'fields', f: f %>
-      
-      <div class="control-group">
-        <div class="controls">
-          <a name="checklist"></a>
-          <% for item in Item.where("user_id = ? OR user_id = ?", current_user, 0) %>
-            <%= check_box_tag "property[item_ids][]", item.id, @property.items.include?(item) %>
-            <%= item.name %>
-            </br>
-          <% end %>
-          </br>
-    	    <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+<!--main tagline area-->
+<section class="taglineWrap">
+  <div class="container">
+    <div class="row-fluid  tagline">
+      <div class="span12"><h2>Edit your property information and save the changes.</h2></div>
+    
+    </div>
+  </div> <!-- /container -->
+</section>
+
+
+<section class="mainContentWrap">
+  <div class="container mainContent">
+    <div class="row-fluid">
+      <div class="span9">
+        <div class="row-fluid">
+          <div class="innerSpacer">
+            
+
+            <!--add property form-->
+            <div class="row-fluid">
+              <div class="span12 contact">
+
+                <h1>Edit Property</h1>
+
+                <%= form_for(@property, html: {multipart: true}) do |f| %>
+                  <%= render 'fields', f: f %>
+
+                  <div class="control-group">
+                    <div class="controls span3">
+                      <a name="checklist"></a>
+                      <% for item in Item.where("user_id = ? OR user_id = ?", current_user, 0) %>
+                        <%= check_box_tag "property[item_ids][]", item.id, @property.items.include?(item) %>
+                        <%= item.name %>
+                        </br>
+                      <% end %>
+
+                    </div>
+                    <label class="control-label" for="name">Checklist</label>
+                  </div>
+
+                  <%= f.submit "Save changes", class: "btn btn-success" %>
+                <% end %>
+                
+              </div>
+            </div>
+            <!--end add property form-->
+          </div>
         </div>
-      </div>
-    <% end %>
+      </div> 
+    </div>
   </div>
-</div>
+</section>

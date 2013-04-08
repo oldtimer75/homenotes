@@ -2,110 +2,160 @@
 
 
 
-<div class="row">
-	<h1><%= @property.address %></h1>
 
+<!--main tagline area-->
+    <section class="taglineWrap">
+      <div class="container">
+        <div class="row-fluid  tagline">
+          <div class="span8"><h2>View and manage a property's information.</h2></div>
+          <div class="span4 action">
+            
+            <div>
+              <%= link_to "Edit", edit_property_path, class: "btn first btn-success" %>
+              <span>or</span>
+              <% if current_user?(@property.user) %>
+                <%= link_to "Delete", @property, class: "btn first btn-danger", method: :delete,
+                                               data: { confirm: "Are you sure?" },
+                                               title: @property.address %>
+              <% end %>
+            </div>
+            
+          </div>
+        </div>
+      </div> <!-- /container -->
+    </section>
+    
+    
+    <!--main content-->
+    <section class="mainContentWrap">
+      <div class="container mainContent">
+        <div class="row-fluid">
+          <div class="span9">
+            <div class="row-fluid">
+              <div class="innerSpacer">
+                
+                                
+                <div class="row-fluid pageTitle">
+                  <div class="span12"><h1><%= @property.address %></h1></div>
+                </div>
+                
+                <!--google maps-->
+                <div class="row-fluid">
 
+                  
 
-  <br>
-  <%= gmaps({
-       "map_options" => { "auto_zoom" => false, "zoom" => 16},
-       "markers"     => { "data" => @json }
-      })%>
-  <br>
-  <div align="right">
-    <%= link_to "Edit", edit_property_path, class: "btn btn-small btn-primary" %>
-    <% if current_user?(@property.user) %>
-      <%= link_to "Delete", @property, class: "btn btn-small btn-primary", method: :delete,
-                                     data: { confirm: "Are you sure?" },
-                                     title: @property.address %>
-    <% end %>
-  </div>
+                  <div class="span12">
+                    
 
-  <br>
+                    <%= gmaps({
+                   "map_options" => { "auto_zoom" => false, "zoom" => 16},
+                   "markers"     => { "data" => @json }
+                  })%>
 
-	<div class="container-fluid">
-	  <div class="row-fluid">
-	    <div class="span12 well">
-	    	
-		    <a href= <%= @property.image_url %> > <%= image_tag @property.image_url(:thumb).to_s, class: "thumbnail" %></a>
-
-        <%= form_for(@property, html: {multipart: true}) do |f| %>
+                  </div>
+                </div>
+                
+                <div class="row-fluid">
+                  <div class="span12">
+                    <h1 style="margin-bottom: 10px">Notes</h1>
+                    <div class="well">
+                      <%= @property.notes %>
+                    </div>
+                    <br>   
+                 </div>
+                </div>
+                
+                <h1 style="margin-bottom: 10px">
+                  Checklist
+                  <%= link_to "Mark Off", edit_property_path + "#checklist", class: "btn btn-success btn-mini font-weight:normal", style: "font-weight:normal;" %>
+                  <%= link_to "Edit Items", additem_path, class: "btn btn-success btn-mini", style: "font-weight:normal;" %>
+                </h1>
+                <div class="row-fluid">
+                  <div class="span12 contact">
+                    <table class="table table-bordered table-striped table-condensed">
+                      <tbody>
+                        <tr>
+                          <td><%= @property.items.collect(&:name).join("</td></tr><tr><td>").html_safe %></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> 
+          
+          <aside class="span3 sidebar">
+            
+            <a href= <%= @property.image_url %> > <%= image_tag @property.image_url(:thumb).to_s, class: "thumbnail" %></a>
+            
+            <%= form_for(@property, html: {multipart: true}) do |f| %>
       
-        <label>
-        <%= f.check_box :remove_image, {checked: true, style: 'display:none'}  %>
-        </label>
+          <label>
+            <%= f.check_box :remove_image, {checked: true, style: 'display:none'}  %>
+          </label>
 
           <div class="control-group">
-            <div class="controls">
-              </br>
-              <%= f.submit "X", class: "label label-info" %>
+            <div class="controls" style="text-align:center">
+              <%= f.submit "Delete Image", class: "label label-important" %>
             </div>
           </div>
         <% end %>
-	    </div>
-	  </div>
-	</div>
-   
-  <br>
-   
-  <div class="container-fluid offset1">
-    <div class="row-fluid">
-      <div class="span5 well">
-      	<div class="span2">
-      		<b>Price:</b> <br> 
-      		<b>Style:</b> <br>
-      		<b>Beds:</b> <br>
-      		<b>Baths:</b> <br> <br>
-      	</div>
-      	<div class="span3">
-      		<%= number_to_currency(@property.price, precision: 0) %> <br>
-      		<%= @property.style %> <br>
-      		<%= @property.beds %> <br>
-      		<%= @property.baths %> 
-      	</div>
-      </div>
-      <div class="span5 well">
-      	<div class="span5">
-  	      <b>Contact Information:</b> <br> <br>
-  	      <%= @property.contact_name %> <br>
-  	      <%= @property.contact_email %> <br>
-  	      <%= number_to_phone(@property.contact_phone) %> <br>
-   		</div>
-      </div>
-    </div> <!-- End Row -->
-  </div> <!-- End Container -->
-   
-  <br>
-   
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span12 well">
-        <b>Notes:</b><br>
-        <%= @property.notes %>
-      </div>
-    </div>
-  </div>
-   
-  <br>
-   
-  <div align="right">
-    <%= link_to "Mark Off Checklist", edit_property_path + "#checklist", class: "btn btn-small btn-primary" %>
-    <%= link_to "Edit Checklist Items", additem_path, class: "btn btn-small btn-primary" %>
-  </div>
+            <!--property details widget-->
+            
+            <div class="widget widget_contact">
+              <h3>Property Details</h3>
+              <div class="address">
+                <span class="icon-tag"></span>
+                <p><strong>Price:</strong>
+                  <%= number_to_currency(@property.price, precision: 0) %></p>
+              </div>
+              
+              <div class="address">
+                <span class="icon-home"></span>
+                <p><strong>Style:</strong>
+                  <%= @property.style %></p>
+              </div>
 
-  <br>
+              <div class="address">
+                <span class="icon-inbox"></span>
+                <p><strong>Beds:</strong>
+                  <%= @property.beds %></p>
+              </div>
 
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span12 well">
-        <b>Checked Items</b>
-        </br>
-        <%= @property.items.collect(&:name).join("<br>").html_safe %>
+              <div class="address">
+                <span class="icon-tint"></span>
+                <p><strong>Baths:</strong>
+                  <%= @property.baths %></p>
+              </div>
+              
+            
+            </div>
+            
+            
+            <!--contact info widget-->
+           
+            
+            <div class="widget widget_contact">
+              <h3>Contact Info</h3>
+              <div class="email">
+                <span class="icon-user"></span>
+                <p><%= @property.contact_name %></p>
+              </div>
+              
+              <div class="email">
+                <span class="icon-envelope"></span>
+                <p><a href=<%= @property.contact_email %>><%= @property.contact_email %></a><br></p>
+              </div>
+                
+              <div class="phone">
+                <span class="icon-bell"></span>
+                <p><%= number_to_phone(@property.contact_phone) %></p>
+              </div>
+            </div>
+            
+            
+          </aside> <!--end sidebar-->
+        </div>
       </div>
-    </div>
-  </div>
-   
-  <br>
-
-</div>
+    </section>

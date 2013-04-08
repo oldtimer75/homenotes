@@ -1,15 +1,39 @@
 <% provide(:title, "Account") %> 
-<h1>Update Your Account</h1>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
-    <%= form_for(@user) do |f| %>
-      <%= render 'fields', f: f %>
-      <div class="control-group">
-        <div class="controls">
-    	  <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+<!--main tagline area-->
+<section class="taglineWrap">
+  <div class="container">
+    <div class="row-fluid  tagline">
+      <div class="span12"><h2>Update your account.</h2></div>
+    
+    </div>
+  </div> <!-- /container -->
+</section>
+
+
+<section class="mainContentWrap">
+  <div class="container mainContent">
+    <div class="row-fluid">
+      <div class="span9">
+        <div class="row-fluid">
+          <div class="innerSpacer">
+            
+
+            <!--edit account form-->
+            <div class="row-fluid">
+              <div class="span12 contact">
+                <h1>Edit Account</h1>
+                <%= form_for(@user) do |f| %>
+                  <%= render 'fields', f: f %>
+                  <%= f.submit "Save changes", class: "btn btn-success" %>
+                <% end %>
+              </div>
+            </div>
+            <!--end edit account form-->
+          </div>
         </div>
-      </div>
-    <% end %>
+      </div> 
+    </div>
   </div>
-</div>
+</section>
+

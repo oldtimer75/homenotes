@@ -1,25 +1,44 @@
 <% provide(:title, 'Add to Checklist') %>
-<h1>Add to Checklist</h1>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
 
-    <%= form_for(@item, html: {multipart: true}) do |f| %>
-      <%= render 'fields', f: f %>
-      <div class="control-group">
-        <div class="controls">
-    	  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
+<!--main tagline area-->
+<section class="taglineWrap">
+  <div class="container">
+    <div class="row-fluid  tagline">
+      <div class="span12"><h2>Add or delete items to your checklist.</h2></div>
+    
+    </div>
+  </div> <!-- /container -->
+</section>
+
+
+<section class="mainContentWrap">
+  <div class="container mainContent">
+    <div class="row-fluid">
+      <div class="span9">
+        <div class="row-fluid">
+          <div class="innerSpacer">
+            
+
+            <!--add property form-->
+            <div class="row-fluid">
+              <div class="span12 contact">
+
+                <h1>Add/Delete Checklist Items</h1>
+
+                <%= form_for(@item, html: {multipart: true}) do |f| %>
+                  <%= render 'fields', f: f %>
+                  <%= f.submit "Add", class: "btn btn-success" %>
+                <% end %>
+                <br>
+                <%= render 'items/item' %>
+                
+              </div>
+            </div>
+            <!--end add property form-->
+          </div>
         </div>
-      </div>
-    <% end %>
-
-
-    
-    
-    <br>
-
-    <%= render 'items/item' %>
-
-    
+      </div> 
+    </div>
   </div>
-</div>
+</section>

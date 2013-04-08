@@ -1,8 +1,25 @@
-<tr>
-	<td class="thumbnail"><a href="<%= property_path(property.id) %>"><%= image_tag property.image_url(:thumb).to_s, class: "thumbnail" %></a></td>
-    <td><%= number_to_currency(property.price, precision: 0) %></td>
-    <td><%= property.address %></td>
-    <td><%= property.style %></td>   
-    <td><%= property.beds %></td>
-    <td><%= property.baths %></td>                                 
-</tr>
+<div class="row-fluid result">
+  <div class="span3">
+    <a href="<%= property_path(property.id) %>"><%= image_tag property.image_url(:thumb).to_s, class: "thumbnail" %></a>
+  </div>
+  <div class="span9 result-title"><h3><a href="<%= property_path(property.id) %>"><%= property.address %></a>
+
+  	<% if property.style != "" %>
+  		<span class="label label-success"><%= property.style %></span>
+  	<% end %>
+  	</h3>
+  	
+    <div class="span2"><%= number_to_currency(property.price, precision: 0) %></div>
+    <div class="span2">
+    	<% if property.beds != nil %>
+    		Beds: <%= property.beds %>
+    	<% end %>
+    </div>
+    <div class="span2">
+    	<% if property.baths != nil %>
+    		Baths: <%= property.baths %>
+    	<% end %>
+    </div>
+  </div>
+</div>
+

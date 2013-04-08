@@ -6,6 +6,7 @@ module SessionsHelper
 		else
 			cookies[:remember_token] = user.remember_token
 		end
+		user_path(user)
 		self.current_user = user
 	end
 
