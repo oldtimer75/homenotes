@@ -1,18 +1,42 @@
 <% provide(:title, 'Add Property') %>
-<h1>Add Property</h1>
 
-<div class="row">
-  <div class="span4 offset3 form-horizontal">
-
-    <%= form_for(@property, html: {multipart: true}) do |f| %>
-      <%= render 'fields', f: f %>
-      <div class="control-group">
-        <div class="controls">
-    	  <%= f.submit "Submit", class: "btn btn-large btn-primary" %>
-        </div>
-      </div>
-    <% end %>
-
+<!--main tagline area-->
+<section class="taglineWrap">
+  <div class="container">
+    <div class="row-fluid  tagline">
+      <div class="span12"><h2>Fill out the fields with property information. Only address is required.</h2></div>
     
+    </div>
+  </div> <!-- /container -->
+</section>
+
+
+<section class="mainContentWrap">
+  <div class="container mainContent">
+    <div class="row-fluid">
+      <div class="span9">
+        <div class="row-fluid">
+          <div class="innerSpacer">
+            
+
+            <!--add property form-->
+            <div class="row-fluid">
+              <div class="span12 contact">
+
+                <h1>Add Property</h1>
+
+                <%= form_for(@property, html: {multipart: true}) do |f| %>
+                  <%= render 'fields', f: f %>
+                  <%= f.submit "Submit", class: "btn btn-success" %>
+                <% end %>
+                
+              </div>
+            </div>
+            <!--end add property form-->
+          </div>
+        </div>
+      </div> 
+    </div>
   </div>
-</div>
+</section>
+

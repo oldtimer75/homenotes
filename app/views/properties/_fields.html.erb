@@ -1,67 +1,68 @@
 <%= render 'shared/error_messages', object: f.object %>
+
 <div class="control-group">
-	<label class="control-label">Address</label>
-    <div class="controls">
-		<%= f.text_field :address, class: "input-xlarge", placeholder: "Required: Street, City, Province/State" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :address, class: "span3 required", placeholder: "Required: Street, City, Province/State" %>
+  </div>
+  <label class="control-label">Address</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Price</label>
-    <div class="controls">
-		<%= f.text_field :price, class: "input-xlarge", placeholder: "Price" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :price, class: "span3 required", placeholder: "e.g. 100000" %>
+  </div>
+  <label class="control-label">Price</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Style</label>
-    <div class="controls">
-		<%= f.text_field :style, class: "input-xlarge", placeholder: "Style" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :style, class: "span3 required", placeholder: "e.g. house, condo" %>
+  </div>
+  <label class="control-label">Style</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Beds</label>
-    <div class="controls">
-		<%= f.text_field :beds, class: "input-xlarge", placeholder: "Beds" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :beds, class: "span3 required", placeholder: "e.g. 3" %>
+  </div>
+  <label class="control-label">Beds</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Baths</label>
-    <div class="controls">
-		<%= f.text_field :baths, class: "input-xlarge", placeholder: "Baths" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :baths, class: "span3 required", placeholder: "e.g. 2" %>
+  </div>
+  <label class="control-label">Baths</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Contact Name</label>
-    <div class="controls">
-		<%= f.text_field :contact_name, class: "input-xlarge", placeholder: "Contact Name" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :contact_name, class: "span3 required", placeholder: "e.g. Jane Smith" %>
+  </div>
+  <label class="control-label">Contact Name</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Contact Email</label>
-    <div class="controls">
-		<%= f.text_field :contact_email, class: "input-xlarge", placeholder: "Contact Email" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :contact_email, class: "span3 required", placeholder: "e.g. jane@gmail.com" %>
+  </div>
+  <label class="control-label">Contact Email</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Contact Phone</label>
-    <div class="controls">
-		<%= f.text_field :contact_phone, class: "input-xlarge", placeholder: "Contact Phone Number" %>
-    </div>
+  <div class="controls">
+    <%= f.text_field :contact_phone, class: "span3 required", placeholder: "e.g. 1231231234" %>
+  </div>
+  <label class="control-label">Contact Phone</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Notes</label>
-    <div class="controls">
-		<%= f.text_area :notes, rows: "7", class: "input-xlarge", placeholder: "Notes" %>
-    </div>
+  <div class="controls">
+    <%= f.text_area :notes, rows: "7", class: "span3 required", placeholder: "Your notes here." %>
+  </div>
+  <label class="control-label">Notes</label>
 </div>
 <div class="control-group">
-	<label class="control-label">Image Upload</label>
-    <div class="controls">
-		<%= f.file_field :image %>
-    </div>
+  <div class="controls">
+    <%= f.file_field :image, class: "span3 required" %>
+  </div>
+  <label class="control-label">&nbsp;&nbsp;&nbsp;Image Upload</label>
 </div>
 <div class="control-group">
-	<label class="control-label">OR Image URL</label>
-    <div class="controls">
-		<%= f.text_field :remote_image_url, class: "input-xlarge", placeholder: "OR Image URL"%>
-    </div>
+  <div class="controls">
+    <%= f.text_field :remote_image_url, class: "span3 required", placeholder: "http://www.domain.com/img.jpg" %>
+  </div>
+  <label class="control-label">OR Image URL</label>
 </div>
