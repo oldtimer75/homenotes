@@ -19,6 +19,7 @@ Homenotes::Application.routes.draw do
   match '/resetpass', to: 'users#resetpass'
   match '/additem', to: 'items#new'
   match '/delete_image', to: 'properties#delete_image'
+  match '/legal', to: 'static_pages#legal'
 
 
   # The priority is based upon order of creation:
