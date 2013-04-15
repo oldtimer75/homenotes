@@ -86,9 +86,9 @@
           </div> 
           
           <aside class="span3 sidebar">
-            
+            <div align="center">
             <a href= <%= @property.image_url %> > <%= image_tag @property.image_url(:thumb).to_s, class: "thumbnail" %></a>
-            
+            </div>
             <%= form_for(@property, html: {multipart: true}) do |f| %>
       
           <label>
